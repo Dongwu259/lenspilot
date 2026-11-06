@@ -1,0 +1,110 @@
+{
+  "global_means": {
+    "exposure": 0.2619,
+    "contrast": 1.0437,
+    "saturation": 0.9921,
+    "vibrance": 0.1168,
+    "wb_temp": 5229.7333,
+    "wb_tint": 19.9067,
+    "clarity": 0.0318,
+    "texture": -0.1156,
+    "dehaze": 0.0409
+  },
+  "scene_biases": {
+    "portrait": {
+      "exposure": 0.0041,
+      "contrast": 0.0089,
+      "saturation": 0.0004,
+      "vibrance": 0.0016,
+      "wb_temp": 0.0026,
+      "wb_tint": -0.0026,
+      "clarity": -0.027,
+      "texture": -0.0003,
+      "dehaze": 0.0024
+    },
+    "bw": {
+      "exposure": 0.0051,
+      "contrast": 0.0187,
+      "saturation": 0.0015,
+      "vibrance": 0.0185,
+      "wb_temp": -0.0292,
+      "wb_tint": 0.0243,
+      "clarity": 0.0537,
+      "texture": -0.012
+    },
+    "soft_haze": {
+      "exposure": -0.029,
+      "contrast": -0.3354,
+      "saturation": -0.0194,
+      "vibrance": -0.1168,
+      "wb_temp": 0.0278,
+      "wb_tint": -0.0117,
+      "clarity": -0.1636,
+      "texture": 0.0006
+    },
+    "bw_high_contrast": {
+      "exposure": -0.0392,
+      "contrast": 0.0198,
+      "saturation": 0.0018,
+      "vibrance": 0.0375,
+      "clarity": -0.1718,
+      "texture": 0.0096
+    },
+    "soft": {
+      "exposure": -0.0335,
+      "contrast": 0.0143,
+      "saturation": 0.001,
+      "vibrance": 0.0132,
+      "texture": 0.0416,
+      "dehaze": -0.0109
+    },
+    "bw_landscape": {
+      "exposure": 0.1804,
+      "contrast": 0.0052,
+      "saturation": 0.0062,
+      "vibrance": 0.0132,
+      "clarity": 0.0682
+    },
+    "auto": {
+      "exposure": -0.035,
+      "contrast": 0.0196,
+      "saturation": -0.0014,
+      "vibrance": 0.0119,
+      "wb_temp": -0.0035,
+      "wb_tint": 0.0108,
+      "clarity": -0.0018,
+      "texture": 0.0116,
+      "dehaze": -0.0109
+    }
+  },
+  "preset_to_scene": {
+    "魅力人像": "portrait",
+    "精美人像": "portrait",
+    "增强人像": "portrait",
+    "增强眼部效果": "portrait",
+    "加深眉毛": "portrait",
+    "纹理头发": "portrait",
+    "黑白 平滑": "bw",
+    "黑白 风景": "bw_landscape",
+    "黑白 高对比度": "bw_high_contrast",
+    "黑白 柔和": "bw",
+    "暴风云": "landscape_dramatic",
+    "暖色流行": "warm",
+    "冷色阴影和暖色高光": "split_tone",
+    "流行": "auto",
+    "柔和": "soft",
+    "柔冷色": "cool",
+    "蓝色戏剧": "cool_dramatic",
+    "柔和薄雾": "soft_haze",
+    "PL02": "unknown",
+    "PL10": "unknown",
+    "PL11": "unknown",
+    "AR08": "unknown",
+    "AR09": "unknown",
+    "AR10": "unknown",
+    "CN07": "unknown",
+    "CN15": "unknown",
+    "PM04": "unknown",
+    "PM11": "unknown"
+  }
+}

@@ -1,0 +1,12 @@
+# LensPilot — 两个版本选一
+#
+# CUDA 版本 (高性能 GPU):
+#   pip install -r requirements_cuda.txt
+#
+# ONNX 版本 (轻量 CPU):
+#   pip install -r requirements_onnx.txt
+#   然后运行: python export_onnx.py
+#
+# MCP (Model Context Protocol) — 连接外部 AI 工具 (可灵生图等)
+#   两个版本都需要: pip install "mcp[cli]>=1.0.0"
+piexif>=1.1.3

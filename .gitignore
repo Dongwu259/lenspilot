@@ -1,0 +1,46 @@
+# ── Python ──
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# ── Node / Electron ──
+node_modules/
+electron_app/package/
+electron_app/build-resources/
+electron_app/build-resources-cpu/
+electron_app/build-resources-gpu/
+electron_app/build-resources-gpu-trimmed/
+electron_app/_check/
+electron_app/_test/
+electron_app/_test.asar
+electron_app/temp-app/
+electron_app/python_backend/crash_logs/
+*.log
+
+# ── 模型权重（运行时自动下载 / 独立发布，永不入库）──
+*.onnx
+*.onnx.data
+*.pt
+*.pth
+*.safetensors
+*.gguf
+*.tflite
+*.task
+electron_app/model/
+
+# ── 代码签名证书与私钥 ──
+*.pfx
+*.p12
+
+# ── 密钥与本地配置 ──
+.env
+*.local.json
+smoke_test/smoke_agent_key.txt
+smoke_test/_lut_preview.jpg
+
+# ── OS / IDE ──
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

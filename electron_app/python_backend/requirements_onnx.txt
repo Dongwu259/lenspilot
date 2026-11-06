@@ -1,0 +1,18 @@
+# ONNX Runtime 版本 — 轻量 CPU 推理
+# 安装体积: ~30MB (ONNX Runtime) + 30MB (量化模型) = ~60MB
+# 速度: CPU ~20ms/张
+# 需先用 export_onnx.py 导出 ONNX 模型
+
+onnxruntime>=1.16.0
+Pillow>=9.0.0
+PyYAML>=6.0
+numpy>=1.24.0
+rawpy>=0.19.0
+pillow-heif>=0.13.0
+pyftpdlib>=1.5.0
+openai>=1.10.0
+imagehash>=4.3.0
+python-docx>=1.0.0
+mcp[cli]>=1.0.0
+opencv-python>=4.8.0
+piexif>=1.1.3

@@ -1,0 +1,10 @@
+{
+  "config": {},
+  "presets": {
+    "索尼微单": {
+      "photo_scan_path": "DCIM",
+      "video_scan_path": "PRIVATE\\M4ROOT\\CLIP"
+    }
+  },
+  "current_preset": "索尼微单"
+}

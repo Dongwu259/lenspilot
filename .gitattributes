@@ -1,0 +1,36 @@
+# 默认：自动识别文本文件，入库统一 LF，检出按平台
+* text=auto
+
+# 脚本行尾钉死（.sh 带 CRLF 到 Mac/Linux 会跑不了；bat/iss 在 Windows 需要 CRLF）
+*.sh    text eol=lf
+*.bash  text eol=lf
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+*.iss   text eol=crlf
+*.isl   text eol=crlf
+
+# 二进制：禁止行尾转换，防止 git 误判为文本把文件改坏
+*.exe       binary
+*.dll       binary
+*.so        binary
+*.dylib     binary
+*.pth       binary
+*.onnx      binary
+*.onnx.data binary
+*.task      binary
+*.tflite    binary
+*.asar      binary
+*.pkg       binary
+*.pyz       binary
+*.whl       binary
+*.zip       binary
+*.7z        binary
+*.ico       binary
+*.icns      binary
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.webp      binary
+*.pdf       binary
+*.docx      binary

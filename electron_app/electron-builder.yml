@@ -1,0 +1,51 @@
+appId: com.dongwu.lenspilot
+productName: LensPilot
+copyright: Copyright © 2026 钱东吴
+
+electronDist: node_modules/electron/dist
+
+directories:
+  output: ../package
+  buildResources: assets
+
+files:
+  - main.js
+  - preload.js
+  - python_service.js
+  - src/**/*
+  - "!src/**/*.bak"
+  - "!src/**/*.bak*"
+  - "!src/**/*-bak"
+  - "!src/**/*-bak.*"
+  - "!build-resources/**"
+  - "!node_modules/**"
+
+extraResources:
+  - from: build-resources/
+    to: ./
+    filter:
+      - "**/*"
+      - "!tmp"
+      - "!tmp/**"
+      - "!**/tmp/**"
+      - "!**/__pycache__/**"
+      - "!**/*.pyc"
+
+win:
+  icon: assets/icon.png
+  target:
+    - target: dir
+      arch: [x64]
+
+mac:
+  icon: assets/icon.png
+  target:
+    - target: dmg
+      arch: [x64, arm64]
+  category: public.app-category.photography
+
+asar: true
+
+asarUnpack: []
+
+afterPack: "./trim-locales.js"

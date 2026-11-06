@@ -1,0 +1,22 @@
+# wdi-simple 调用参数模板（libwdi 的非 GUI CLI = Zadig 的驱动安装引擎）。
+#
+# install_camera_driver.py 读取本文件【第一行非注释、非空内容】作为参数模板，
+# 把 {VID}/{PID} 替换为检测到的相机 USB VID/PID（如 0x054C / 0x0XXX），
+# 然后调用 wdi-simple.exe 安装 WinUSB。
+#
+# ✅ 已从 libwdi 1.5.1 源码 examples/wdi-simple.c 核实真实 flag（不再猜）：
+#    -v, --vid <id>      VID（0x 前缀十六进制）
+#    -p, --pid <id>      PID
+#    -t, --type <n>      驱动类型: 0=WinUSB, 1=libusb-win32, 2=libusbK, 3=usbser, 4=custom
+#    -n, --name <名称>    设备名（可选）
+#    -m, --manufacturer  厂商名（可选）
+#    -w, --wcid           用 WCID 驱动（≠ WinUSB！别和 -W 搞混）
+#    -x, --extract        仅解压驱动文件不安装
+#    -s, --silent         静默模式
+#    -c, --cert <名称>    安装内嵌的受信任证书
+#    -h, --help           用法
+#  ⚠️ 没有 -W 这个 flag（早期文档写错）。装 WinUSB 用 --type 0。
+#     wdi-simple 默认 driver_type 已是 WDI_WINUSB，所以 --type 0 可省，但写上更明确。
+#
+# 默认模板（为相机装 WinUSB）：
+--vid {VID} --pid {PID} --type 0

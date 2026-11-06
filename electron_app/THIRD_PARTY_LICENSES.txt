@@ -1,0 +1,220 @@
+LensPilot — 第三方依赖许可证
+================================
+Copyright (c) 2026 Dongwu259 (Dongwu259)
+
+本软件使用了以下开源项目。根据各自许可证要求，列出其版权声明和许可条款。
+
+============================================================================
+1. PyTorch & torchvision — BSD-3-Clause
+============================================================================
+Copyright (c) 2016-     Facebook, Inc            (Adam Paszke)
+Copyright (c) 2014-     Facebook, Inc            (Soumith Chintala)
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+1. Redistributions of source code must retain the above copyright notice.
+2. Redistributions in binary form must reproduce the above copyright notice
+   in the documentation and/or other materials provided with the distribution.
+3. Neither the names of the copyright holders nor the names of its
+   contributors may be used to endorse or promote products derived from this
+   software without specific prior written permission.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES ARE DISCLAIMED.
+
+LensPilot 使用: ResNet-18 预训练权重（ImageNet），经微调后用于照片美学评分。
+
+============================================================================
+2. ONNX Runtime — MIT
+============================================================================
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the MIT License.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software...
+
+LensPilot 使用: CPU 推理引擎（ONNX 模型评分）。
+
+============================================================================
+3. MediaPipe Face Landmark — Apache 2.0
+============================================================================
+Copyright 2020 The MediaPipe Authors.
+
+模型文件: face_landmarks.onnx (由 MediaPipe FaceMesh 转换而来)
+用途: 人脸关键点检测 → 眼睛闭合判断 (EAR)
+
+随附完整 Apache 2.0 许可证: 见 LICENSE-Apache-2.0.txt
+
+============================================================================
+4. OpenCV (opencv-python) — Apache 2.0
+============================================================================
+Copyright (C) 2000-2024, Intel Corporation, all rights reserved.
+Copyright (C) 2009-2011, Willow Garage Inc., all rights reserved.
+Copyright (C) 2009-2016, NVIDIA Corporation, all rights reserved.
+Copyright (C) 2010-2013, Advanced Micro Devices, Inc., all rights reserved.
+Copyright (C) 2015-2023, OpenCV Foundation, all rights reserved.
+Copyright (C) 2015-2023, Itseez Inc., all rights reserved.
+
+用途: Haar Cascade 人脸检测（闭眼检测的第一步）
+
+随附完整 Apache 2.0 许可证: 见 LICENSE-Apache-2.0.txt
+
+============================================================================
+5. pillow-heif — Apache 2.0
+============================================================================
+Copyright (c) 2022, Alexander Piskun, BigPythonBlog
+
+用途: Apple HEIC 照片解码
+
+随附完整 Apache 2.0 许可证: 见 LICENSE-Apache-2.0.txt
+
+============================================================================
+6. OpenAI Python SDK — Apache 2.0
+============================================================================
+Copyright (c) OpenAI
+
+用途: LLM API 调用（数字员工阈值决策、borderline 裁决）
+
+随附完整 Apache 2.0 许可证: 见 LICENSE-Apache-2.0.txt
+
+============================================================================
+7. NumPy — BSD-3-Clause
+============================================================================
+Copyright (c) 2005-2024, NumPy Developers. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted...
+
+用途: 矩阵运算、pHash DCT 计算
+
+============================================================================
+8. Pillow (PIL) — MIT-CMU (Historical Permission Notice)
+============================================================================
+Pillow is the friendly PIL fork by Alex Clark and Contributors.
+PIL is the Python Imaging Library by Fredrik Lundh and Contributors.
+Copyright © 1997-2011 by Secret Labs AB
+Copyright © 1995-2011 by Fredrik Lundh
+
+用途: 图像加载、缩略图生成、JPEG 编码
+
+============================================================================
+9. rawpy — MIT
+============================================================================
+Copyright (c) 2014 Maik Riechert
+
+用途: RAW 照片解码（ARW/NEF/CR2/DNG 等 40+ 格式）
+
+============================================================================
+10. Electron — MIT
+============================================================================
+Copyright (c) Electron contributors
+Copyright (c) 2013-2020 GitHub Inc.
+
+用途: 跨平台桌面应用框架
+
+============================================================================
+11. sharp — Apache 2.0
+============================================================================
+Copyright (c) Lovell Fuller and contributors.
+
+用途: 服务端图片处理（缩略图生成）
+
+随附完整 Apache 2.0 许可证: 见 LICENSE-Apache-2.0.txt
+
+============================================================================
+12. better-sqlite3 — MIT
+============================================================================
+Copyright (c) 2017 Joshua Wise
+
+用途: 服务端 SQLite 数据库驱动
+
+============================================================================
+13. @phosphor-icons/web — MIT
+============================================================================
+Copyright (c) 2024 Phosphor Icons
+
+用途: UI 图标库
+
+============================================================================
+14. libgphoto2 / python-gphoto2 — LGPL v2.1+
+============================================================================
+Copyright (c) 2000-2024, Lutz Mueller and contributors.
+
+libgphoto2 是一个免费的数字相机控制库，支持 ~2000+ 型号。
+LensPilot 通过 python-gphoto2 绑定调用 libgphoto2 的 C 库（camlibs），
+提供实时取景、遥控拍摄和相机参数读写功能。
+
+LGPL v2.1 全文: https://www.gnu.org/licenses/lgpl-2.1.html
+源码: https://github.com/gphoto/libgphoto2
+
+注意: LGPL 组件以动态链接方式使用（通过 libgphoto2 的 .so/.dylib/.dll），
+LensPilot 未修改 libgphoto2 源代码，亦未将其静态链接进安装包。
+Windows 版通过 sidecar 子进程（mingw python）加载 gphoto2 camlibs。
+
+============================================================================
+15. libwdi — LGPL v2.1+ (Zadig: GPL v3)
+============================================================================
+Copyright (c) 2010-2024, Pete Batard and contributors.
+
+libwdi 是 Windows USB 驱动自动化安装库。LensPilot 使用其配套工具
+wdi-simple.exe 为相机安装 WinUSB 驱动（替换默认 PTP 类驱动），
+使 libgphoto2 能够通过 libusb 访问相机。
+
+LGPL v2.1 全文: https://www.gnu.org/licenses/lgpl-2.1.html
+Zadig GPL v3 全文: https://www.gnu.org/licenses/gpl-3.0.html
+源码: https://github.com/pbatard/libwdi
+
+============================================================================
+16. libusb — LGPL v2.1+
+============================================================================
+Copyright (c) 2001-2024, libusb contributors.
+
+跨平台 USB 设备访问库，libgphoto2 和 libwdi 的底层 USB 传输层。
+Windows 上使用 WinUSB 设备驱动，macOS/Linux 使用各自平台的 USB 栈。
+
+LGPL v2.1 全文: https://www.gnu.org/licenses/lgpl-2.1.html
+源码: https://github.com/libusb/libusb
+
+============================================================================
+17. SQLite — Public Domain
+============================================================================
+SQLite 已发布至公共领域（Public Domain），不附带任何版权限制。
+
+用途: Python 后端评分缓存数据库（scores.db）、用户偏好存储。
+
+============================================================================
+18. 其他 MIT/BSD 依赖
+============================================================================
+以下库均在 MIT 或 BSD 许可下分发，完整版权声明见各库的 LICENSE 文件：
+
+Python:
+  • PyYAML (MIT) — 配置文件解析
+  • opencv-python (Apache 2.0) — 已在上方声明
+  • imagehash (MIT) — 图像去重（已替换为纯 numpy 实现）
+  • python-docx (MIT) — Word 文档导出
+  • pyftpdlib (MIT) — 内置 FTP 服务器
+  • mcp (MIT) — Model Context Protocol
+
+Node.js:
+  • electron-builder (MIT) — 打包工具
+
+Python（本项目自有代码）:
+  • photo_s — LensPilot 内置的照片处理工具库副本，作者自有上游项目
+    （https://github.com/Dongwu259/photo_s），随本仓库以相同许可证
+    （GPL-3.0-or-later）分发。
+
+============================================================================
+免责声明
+============================================================================
+本软件按"原样"提供，不提供任何明示或暗示的保证。
+所有第三方组件的版权归各自所有者所有。
+如对许可证条款有疑问，请查阅各项目的源代码仓库。

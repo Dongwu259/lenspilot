@@ -1,0 +1,17 @@
+{
+  "name": "lenspilot",
+  "version": "0.9.0",
+  "description": "\u81ea\u52a8\u62f7\u5361 + AI\u6253\u5206\u9009\u7247 - \u4e00\u4f53\u5316\u6444\u5f71\u5de5\u4f5c\u6d41\u5de5\u5177",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "author": "\u94b1\u4e1c\u5434",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "@phosphor-icons/web": "^2.1.2",
+    "electron": "^42.0.0",
+    "electron-builder": "^26.0.0"
+  }
+}

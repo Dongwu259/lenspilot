@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="brand-rev" x1="1" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#brand)" opacity="0.12"/>
+
+  <!-- Lens outer ring -->
+  <circle cx="256" cy="256" r="200" fill="none" stroke="url(#brand)" stroke-width="24"/>
+
+  <!-- Aperture blades — 6 overlapping polygons suggesting camera aperture -->
+  <g opacity="0.55" fill="url(#brand)">
+    <polygon points="256,96 340,160 320,256 256,256 192,160"/>
+    <polygon points="416,192 400,300 320,320 320,256 340,160"/>
+    <polygon points="416,320 340,400 256,320 320,256 400,300"/>
+    <polygon points="256,416 160,360 192,256 256,320 340,400"/>
+    <polygon points="96,320 112,212 192,192 192,256 160,360"/>
+    <polygon points="96,192 172,112 256,192 192,256 112,212"/>
+  </g>
+
+  <!-- Central lens circle -->
+  <circle cx="256" cy="256" r="56" fill="url(#brand-rev)"/>
+
+  <!-- Navigation compass arrow — the "pilot" element -->
+  <!-- Outer compass ring -->
+  <circle cx="256" cy="256" r="92" fill="none" stroke="url(#brand)" stroke-width="5" stroke-dasharray="8 6"/>
+
+  <!-- Compass needle (upward arrow through center) -->
+  <g fill="url(#brand)">
+    <!-- North pointer -->
+    <polygon points="256,100 236,170 276,170"/>
+    <!-- South pointer (shorter, clipped by center circle) -->
+    <polygon points="256,412 236,342 276,342"/>
+  </g>
+
+  <!-- Small pilot wings on the sides -->
+  <g fill="url(#brand-rev)" opacity="0.7">
+    <path d="M164,230 Q130,220 140,195 Q155,200 170,210 Z"/>
+    <path d="M348,230 Q382,220 372,195 Q357,200 342,210 Z"/>
+  </g>
+
+  <!-- Center dot -->
+  <circle cx="256" cy="256" r="16" fill="#fff"/>
+</svg>
