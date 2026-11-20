@@ -480,8 +480,16 @@ if __name__ == "__main__":
 
     # ── Crash Reporting ──
     import traceback
-    CRASH_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'crash_logs')
-    os.makedirs(CRASH_DIR, exist_ok=True)
+    # Crash logs go to the writable user-data dir: next to __file__ is the
+    # packaged resources dir — read-only in installs and NOT writable under
+    # MSIX (WindowsApps dirs are not write-virtualized), which used to crash
+    # the backend at startup.
+    try:
+        CRASH_DIR = os.path.join(_get_config_dir(), 'crash_logs')
+        os.makedirs(CRASH_DIR, exist_ok=True)
+    except Exception:
+        CRASH_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'crash_logs')
+        os.makedirs(CRASH_DIR, exist_ok=True)
 
     def _crash_handler(exc_type, exc_value, exc_tb):
         tb_lines = traceback.format_exception(exc_type, exc_value, exc_tb)
