@@ -22,7 +22,7 @@ python -c "import ast,io; v=[l for l in io.open('photo_s/__init__.py',encoding='
 
 echo.
 echo [1.5/5] Staging local LLM runtime (llama-server, CUDA)...
-python copy-llm-runtime.py --cuda
+python "%~dp0copy-llm-runtime.py" --cuda
 if errorlevel 1 echo WARNING: local LLM runtime copy failed (AI 助手本地模型将不可用)
 
 echo.

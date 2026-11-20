@@ -6,8 +6,8 @@
 #define AppVersion "0.9.0"
 #define AppPublisher "Dongwu259"
 #define AppURL "https://studio.dwphoto.top"
-#define SourceDir "{#SourcePath}\..\package\win-unpacked"
-#define OutputDir "{#SourcePath}\..\package"
+#define SourceDir "..\package\win-unpacked"
+#define OutputDir "..\package"
 #define SetupName "LensPilot-Win-CPU-Setup-0.9.0"
 
 [Setup]
@@ -25,8 +25,8 @@ OutputBaseFilename={#SetupName}
 Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
-LicenseFile={#SourcePath}\license.txt
-SetupIconFile={#SourcePath}\assets\icon.ico
+LicenseFile=license.txt
+SetupIconFile=assets\icon.ico
 PrivilegesRequired=admin
 PrivilegesRequiredOverridesAllowed=dialog
 ArchitecturesInstallIn64BitMode=x64compatible
@@ -42,15 +42,15 @@ UninstallDisplayIcon={app}\LensPilot.exe
 #endif
 
 [Languages]
-Name: "chinese"; MessagesFile: "{#SourcePath}\ChineseSimplified.isl"
+Name: "chinese"; MessagesFile: "ChineseSimplified.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "创建桌面快捷方式"; GroupDescription: "额外图标:"
 
 [Files]
 Source: "{#SourceDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "{#SourcePath}\THIRD_PARTY_LICENSES.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#SourcePath}\..\LICENSE"; DestDir: "{app}"; DestName: "LICENSE-GPL-3.0.txt"; Flags: ignoreversion
+Source: "THIRD_PARTY_LICENSES.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\LICENSE"; DestDir: "{app}"; DestName: "LICENSE-GPL-3.0.txt"; Flags: ignoreversion
 
 [Icons]
 Name: "{autoprograms}\LensPilot (CPU)"; Filename: "{app}\LensPilot.exe"

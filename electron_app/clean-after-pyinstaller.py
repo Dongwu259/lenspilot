@@ -63,6 +63,19 @@ def main():
     # ── 1. Always remove: dev-only files ──
     print("\n--- Removing dev files (both builds) ---")
 
+    # Coverage artifacts with commas in the name (e.g. wcwidth/textwrap.py,cover)
+    # — legal on NTFS but breaks MSIX packing (makeappx 0x8007007B)
+    for root_dir, _dirs, files in os.walk(BUILD_DIR):
+        for f in files:
+            if f.endswith(",cover"):
+                rm(os.path.join(root_dir, f))
+
+    # python-docx wheel ships an unpacked OPC template dir whose member names
+    # ([Content_Types].xml, _rels/, *.rels) are RESERVED in MSIX packages —
+    # never read at runtime (api.py resolves templates/default.docx), but
+    # breaks makeappx (0x8007007B). Keep default.docx, drop the exploded dir.
+    rm(os.path.join(BUILD_DIR, "docx", "templates", "default-docx-template"))
+
     # C++ headers
     torch_include = os.path.join(BUILD_DIR, "torch", "include")
     rm(torch_include)

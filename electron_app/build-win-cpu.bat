@@ -24,7 +24,7 @@ if errorlevel 1 echo WARNING: ONNX export failed (skip if model already exported
 
 echo.
 echo [2.5/5] Staging local LLM runtime (llama-server, CPU)...
-python copy-llm-runtime.py --cpu
+python "%~dp0copy-llm-runtime.py" --cpu
 if errorlevel 1 echo WARNING: local LLM runtime copy failed (AI 助手本地模型将不可用)
 
 echo.
