@@ -1,0 +1,14 @@
+{
+  "_README": [
+    "发布到 Microsoft Store 前，用 Partner Center 里保留应用名后分配的值覆盖下面三个字段：",
+    "  Partner Center → 应用和服务 → 应用标识（Package/Identity/Name 与 Publisher）。",
+    "Publisher 必须与 Partner Center 显示的完全一致（形如 CN=8A4F...），",
+    "否则上传时校验失败。PublisherDisplayName 是商店里显示的开发者名。",
+    "本地测试时可用 scripts/make-msix-test-cert.ps1 生成自签证书，",
+    "并把 publisher 改成与证书 Subject 一致的值。"
+  ],
+  "identityName": "Dongwu259.LensPilot",
+  "publisher": "CN=Dongwu259 Store Test",
+  "publisherDisplayName": "Dongwu259",
+  "version": "0.9.0.0"
+}

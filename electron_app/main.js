@@ -45,16 +45,31 @@ const appRoot = (() => {
   }
   return exeDir;
 })();
+// ── MSIX / Microsoft Store 环境检测 ──
+// 商店版的更新由 Store 分发；exe 自更新（下载 Inno 安装包重装）在 MSIX 下会
+// 装出第二份非商店副本，必须整体禁用。检测依据：MSIX 进程会被注入
+// WINDOWS_PACKAGE_FAMILY_NAME 环境变量，且安装路径位于 WindowsApps 目录下。
+function detectMsixEnvironment() {
+  if (process.platform !== 'win32') return false;
+  if (process.env.WINDOWS_PACKAGE_FAMILY_NAME) return true;
+  try {
+    return String(process.execPath).toLowerCase().includes('\\windowsapps\\');
+  } catch (_) { return false; }
+}
+const IS_MSIX = detectMsixEnvironment();
+
 const portableData = path.join(appRoot, 'data');
 let pendingPortablePrompt = false;
 
 if (fs.existsSync(portableData) && fs.statSync(portableData).isDirectory()) {
   app.setPath('userData', portableData);
   console.log('[main] portable mode — userData:', portableData);
-} else if (process.platform !== 'darwin') {
+} else if (process.platform !== 'darwin' && !IS_MSIX) {
   // Only show first-run portable prompt on Windows/Linux.
   // macOS has strict data-location conventions (~/Library/Application Support)
   // and apps inside .app bundles should be treated as read-only.
+  // MSIX：安装目录（WindowsApps）只读且随包升级重置，数据必须走虚拟化
+  // AppData（LocalCache），不提供便携模式。
   const defaultUserData = app.getPath('userData');
   if (!fs.existsSync(defaultUserData)) {
     pendingPortablePrompt = true;
@@ -209,6 +224,9 @@ ipcMain.handle('open-folder', async (_, folderPath) => {
 // App version
 ipcMain.handle('get-version', () => require('./package.json').version);
 
+// ── MSIX / Microsoft Store 环境检测 ──
+ipcMain.handle('get-runtime-env', () => ({ isMsix: IS_MSIX }));
+
 // Show file in folder
 ipcMain.handle('show-item-in-folder', async (_, filePath) => {
   shell.showItemInFolder(filePath);
@@ -264,6 +282,8 @@ ipcMain.handle('install-and-quit', async (_, filePath) => {
   // like "C:\Temp2\evil.exe" when tmpDir is "C:\Temp".
   if (!resolved.startsWith(tmpDir + path.sep)) throw new Error('Installer must be in temp directory');
   if (!fs.existsSync(resolved)) throw new Error('Installer file not found');
+  // 商店版禁止 exe 自更新（会装出第二份副本）：更新走 Microsoft Store
+  if (IS_MSIX) throw new Error('Microsoft Store 版不支持 exe 自更新，请通过 Store 更新');
   // Windows 下先校验 Authenticode 签名再执行；macOS 走单独打包链（公证/dmg），此处跳过
   if (process.platform === 'win32') {
     try {

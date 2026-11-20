@@ -45,6 +45,8 @@ contextBridge.exposeInMainWorld('api', {
   relaunchApp: () => ipcRenderer.invoke('relaunch-app'),
 
   getVersion: () => ipcRenderer.invoke('get-version'),
+  // 运行环境信息（是否 MSIX/商店版）— 商店版禁用 exe 自更新
+  getRuntimeEnv: () => ipcRenderer.invoke('get-runtime-env'),
   showItemInFolder: (path) => ipcRenderer.invoke('show-item-in-folder', path),
 
   // Auto-update: save downloaded installer to temp & launch

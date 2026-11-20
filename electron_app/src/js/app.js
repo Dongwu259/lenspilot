@@ -123,6 +123,14 @@ const App = {
   },
 
   async checkUpdate() {
+    // MSIX / Microsoft Store 版：更新由 Store 分发，禁用 exe 自更新检查与提示
+    try {
+      if (this._isMsix === undefined && window.api && window.api.getRuntimeEnv) {
+        const env = await window.api.getRuntimeEnv();
+        this._isMsix = !!(env && env.isMsix);
+      }
+      if (this._isMsix) return;
+    } catch (_) { /* IPC 缺失时照常走官网更新检查 */ }
     try {
       const local = await window.api.getVersion();
       const resp = await fetch(`${this.serverUrl}/version.json?ts=${Date.now()}`, { cache: 'no-store' });

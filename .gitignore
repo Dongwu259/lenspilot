@@ -6,7 +6,10 @@ __pycache__/
 
 # ── Node / Electron ──
 node_modules/
+package/
 electron_app/package/
+# MSIX 磁贴资产为生成物（gen-msix-assets.py 重新生成）
+electron_app/packaging/msix/Assets/
 electron_app/build-resources/
 electron_app/build-resources-cpu/
 electron_app/build-resources-gpu/
